@@ -10,7 +10,7 @@ bot = discord.Bot()
 
 @bot.event
 async def on_application_command(ctx: discord.ApplicationContext):
-    logger.info(f"/{ctx.command.qualified_name} by {ctx.author.display_name}")
+    logger.info(f"/{ctx.command.qualified_name} by @{ctx.author.name}")
 
 @bot.event
 async def on_ready():
