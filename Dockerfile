@@ -8,6 +8,6 @@ COPY . /app
 # Disable dev dependencies
 ENV UV_NO_DEV=1
 
-RUN uv sync --locked
+RUN uv sync --all-extras
 
 CMD ["uv", "run", "wowbot"]
