@@ -12,3 +12,8 @@ wheels/
 # IntelliJ
 .idea/
 
+# UV lock (version constrains should be in pyproject.toml)
+uv.lock
+
+#Sensitive
+.env
