@@ -42,6 +42,13 @@ def main() -> None:
         exit(1)
     logger.debug(f"Discord token: <redacted>{token[-5:]}")
 
+
+    logger.info(f"Registering cogs")
+    from wowbot.cogs import Cogs
+    for Cog in Cogs:
+        Cog(bot).setup()
+
+
     sentry_dsn = os.getenv("SENTRY_DSN")
     if sentry_dsn is not None:
         logger.debug(f"Sentry DSN: @{sentry_dsn.split('@')[1]}")

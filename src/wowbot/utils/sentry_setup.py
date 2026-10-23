@@ -11,6 +11,9 @@ async def on_command_error(ctx: discord.ApplicationContext, error: discord.Appli
         scope.set_user({"id": ctx.author.id, "name": ctx.author.name})
         scope.set_tag("command", ctx.command.qualified_name if ctx.command else None)
         scope.set_extra("guild_id", ctx.guild_id)
+        scope.set_extra("guild_name", ctx.guild.name if ctx.guild else None)
+        scope.set_extra("user_id", ctx.author.id if ctx.author else None)
+        scope.set_extra("user_name", ctx.author.name if ctx.author else None)
         sentry_sdk.capture_exception(original_error)
 
     await ctx.respond(
